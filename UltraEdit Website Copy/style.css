@@ -1,0 +1,416 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing : border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.second :nth-child(6) img
+{
+    width: 30px;
+    height: 30px;
+}
+
+.navigation
+{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    padding-left: 20vw;
+    align-items: center;
+    
+}
+
+select
+{
+    border: 0px;
+
+}
+.second
+{
+    margin-left: 20vw;
+    font-size: 14px;
+    gap: 30px;
+    display: inline-flex;
+    align-items: center;
+    width: 50vw;
+    height: 8vh;
+    opacity: 80%;
+}
+
+.logo
+{
+    height: 43px;
+}
+
+.bar
+{
+
+    margin: 10vh;
+    width: 70vw;
+    margin-left: 15vw !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 80%;
+}
+
+.bar p
+{
+    display: inline;
+}
+
+.div1
+{
+    font-size: 35px;
+}
+
+.bar div img
+{
+    height: 24px;
+    cursor: pointer;
+}
+
+.bar div p
+{
+    font-weight: bold;
+}
+
+.div2
+{
+    margin-top: 20px;
+    width: 45vw;
+    text-align: center;
+    font-size: 17px;
+}
+
+.download-button
+{
+    margin-top: 30px;
+    background-color:#00b6d1;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.download-button:hover
+{
+    background-color: #009eb6;
+}
+
+.download
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    margin-left: 20vw;
+}
+
+.download img
+{
+    width: 50px;
+}
+
+.download h3
+{
+    margin:  0px 20px;
+    font-weight: 400;
+}
+
+.download span
+{
+    font-size: 10px;
+}
+
+.download-option
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    margin-left: 20vw;
+    margin-top: 2vh;
+    justify-content: space-between;
+}
+
+.box
+{
+    width: 19vw;
+    margin: 5px;
+    height: 17vh;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.download-option span button
+{
+    font-size: 9px; 
+    font-weight: bold;
+    color: white;
+    background-color: #01c53f;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 5.5em;
+}
+
+.download-option span button:hover
+{
+    cursor: pointer;
+}
+
+.email
+{
+    background-color: #222;
+    height: 70vh;
+    width: 100%;
+    color: white;
+}
+
+.to-top
+{
+    width: 3vw;
+    height: 3vw;
+    position: fixed;
+    right: 1vw;
+    bottom: 2vh;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    background-color: #00b6d1;
+    color: white;
+}
+
+.to-top:hover
+{
+    cursor: pointer;
+}
+
+.a
+{
+    text-align: center;
+}
+
+.a h3
+{
+    font-size: 20px;
+}
+
+.a p{
+    font-size: 12px;
+    width: 42vh;
+    margin-top: 10px;
+}
+
+.join
+{
+    display: inline-flex;
+    margin-top:10vh;
+    height: 20vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.subscribe-email
+{
+    display: grid;
+    grid-template-rows: 10vh 3vh 6vh 5vh;
+    justify-content: center;
+    margin-left: 10vw;
+    background-color: white;
+    width: 18vw;
+    height: 28vh;
+    border-radius: 15px;
+}
+
+.subscribe-email p
+{
+    color: #00b6d1;
+    text-align: center;
+    font-size: 25px !important
+}
+
+.subscribe-email label
+{
+    font-size: 13px;
+    color: black;
+    text-align: center;
+}
+
+.subscribe-email input
+{
+    border: 1px solid rgb(189, 189, 189);
+    width: 14vw;
+    height: 5vh;
+}
+
+.subscribe-email p
+{
+    font-size: 18px;
+    margin-top: 4vh;
+}
+
+.subscribe-email button
+{
+    height: 4.4vh;
+    font-weight: bold;
+    background-color: #37d5ee;
+    color: white;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+.subscribe-email button:hover
+{
+    cursor: pointer;
+}
+
+.join-2
+{
+    margin-top: 15vh;
+    margin-left: 20vw;
+}
+
+.join-2 .p1
+{
+    font-size: 18px;
+}
+
+.join-2 .p2
+{
+    font-size: 13px;
+    margin-top: 5px;
+    width: 60vw;
+    word-spacing: 2px;
+}
+
+.join-2 .p2 span
+{
+    color: #00b6d1;
+    margin-left: 6px;
+}
+
+.join-2 .p2 span:hover
+{
+    cursor: pointer;
+}
+
+.p3
+{
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.p4
+{
+    font-size: 13px;
+    margin-top: 5px;
+    width: 60vw;
+    word-spacing: 2px;
+}
+
+.p4 span
+{
+    color: #00b6d1;
+}
+
+.p4 span:hover
+{
+    cursor: pointer;
+}
+
+footer
+{
+    display: flex;
+    width: 70vw;
+    justify-content: center;
+    margin-left: 15vw;
+    margin-top: 8vh;
+    justify-content: space-between;
+}
+
+footer div h3
+{
+    margin-bottom: 15px;
+}
+
+footer div span
+{
+    font-size: 14px;
+}
+
+footer div span:hover
+{
+    cursor:text;
+}
+
+.newsletter input
+{
+    margin: 10px 0px;
+    width: 10vw;
+    height: 4vh;
+    border-radius: 5px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.newsletter button
+{
+    width: 10vw;
+    height: 3.5vh;
+    border-radius: 5px;
+    background-color: #00b6d1;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.newsletter button:hover
+{
+    cursor: pointer;
+    background-color: #008296;
+}
+
+.bottom
+{
+    margin-top: 8vh;
+}
+
+.bottom div
+{
+    display: inline-block;
+}
+
+.social-media
+{
+    display: flex;
+    align-items: center;
+    margin-left: 37vw;
+    width: 20vw;
+}
+.social-media img
+{
+    width: 25px;
+    margin-right: 12px;
+}
+
+.bottom > img
+{
+    margin-left: 19vw;
+    width: 9vw;
+}
+
+.bottom p
+{
+    margin-bottom: 10vh;
+    font-size: 14px;
+    margin-left: 18.8vw;
+    margin-top: 10px;
+}

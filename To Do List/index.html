@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List - Bipin Thapa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav1">
+            <a href="index.html"><div class="nav11">To Do List</div>
+                <div class="nav12">By Bipin</div></a>
+        </div>
+        <div class="nav2">
+            <div class="nav21"><i class="fa-brands fa-github"></i><span> <a href="https://github.com/bipin-thapa01" target="_blank">Github</a></span></div>
+            <div class="nav22"><i class="fa-brands fa-facebook"></i><span> <a href="https://www.facebook.com/bipin.thapasingh/" target="_blank">Facebook</a></span></div>
+        </div>
+        <div class="nav3" onclick="changeColor()"><i class="fa-regular fa-moon"></i></div>
+    </nav>
+    <div class="enter">
+        <div class="enter-box"><input type="text" name="task" id="task" autocomplete="off" placeholder="Enter Text"></div>
+        <div class="add"><button onclick="add()">+</button></div>
+    </div>
+    <div class="option">
+        <button class="option1">History</button>
+        <button class="option2">All Done</button>
+        <button class="option3">Delete</button>
+    </div>
+    <div class="todo-list">
+        <ul class="tasks">
+            <!-- <li>Read</li>
+            <li>Write</li>
+            <li>Eat</li>
+            <li>Sleep</li> -->
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
