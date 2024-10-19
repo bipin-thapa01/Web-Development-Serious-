@@ -1,0 +1,34 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(27, 27, 27);
+    color: white;
+}
+
+body
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.main
+{
+    position: absolute;
+    top: 5vh;
+    height: 80vh;
+    width: 30vw;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.note
+{
+    position: absolute;
+    top: 2vh;
+}
+
