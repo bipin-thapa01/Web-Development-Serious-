@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
 *
 {
     margin: 0;
@@ -19,16 +21,256 @@ body
 {
     position: absolute;
     top: 5vh;
-    height: 80vh;
+    height: auto;
     width: 30vw;
     border: 2px solid white;
     border-radius: 5px;
     padding: 5px;
 }
 
-.note
+.top
 {
-    position: absolute;
-    top: 2vh;
+    width: 28vw;
+    height: 10vh;
+    padding: 0.8vw 1vw;
+    display: flex;
+    justify-content: space-between;
 }
 
+.top_left
+{
+    width: 10vw;
+}
+
+.top_right
+{
+    width: 18vw;
+}
+
+.top1
+{
+    font-family: "Oxanium", sans-serif;
+
+}
+
+.top2
+{
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+.top3
+{
+    font-family: "Oxanium", sans-serif;
+    font-size: 14px;
+    padding-top: 2px;
+    color: rgb(4, 219, 4);
+    font-weight: bolder;
+
+}
+
+.top4
+{
+    border: 2px solid white;
+    height: 5vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.top5
+{
+    right: 20px;
+    padding-top: 4px;
+    background: transparent;
+}
+
+.displays
+{
+    height: 10vh;
+    border: 2px solid white;
+    border-radius: 5px;
+    position: relative;
+    background-color: rgb(67, 67, 67);
+}
+
+.display1
+{
+    height: 4vh;
+    font-size: 20px;
+    overflow:auto;
+    background-color: rgb(67, 67, 67);
+}
+
+.display2
+{
+    height: 6vh;
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    overflow: hidden;
+    background-color: rgb(67, 67, 67);
+}
+
+.buttons
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    padding-top: 40px;
+}
+
+.button
+{
+    height: 5vh;
+    width: 5vw;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.button:hover
+{
+    cursor: pointer;
+    background-color: gray;
+    
+}
+
+@media screen and (max-width:1200px)
+{
+    .main
+    {
+        width: 40vw;
+    }
+
+    .top1{
+        font-size: 2vw;
+    }
+
+    .top2
+    {
+        font-size: 1.4vw;
+    }
+
+    .top3
+    {
+        font-size: 1.2vw;
+    }
+
+    .top_left
+    {
+        width: 18vw;
+    }
+
+    .top_right
+    {
+        width: 30vw;
+    }
+
+    .top4
+    {
+        width: 20vw;
+        font-size: 1.6vw;
+        position: absolute;
+        right: 20px;
+    }
+
+    .top5
+    {
+        position: absolute;
+        top: 6vw;
+        right: 20px;
+        padding-top: 4px;
+        font-size: 1.2vw;
+    }   
+}
+
+@media screen and (max-width: 1000px)
+{
+    .main
+    {
+        top: 2vh;
+        width: 90vw;
+    }
+
+    .top
+    {
+        height: 15vh;
+    }
+
+    .top_left
+    {
+        width: 40vw;
+    }
+
+    .top1
+    {
+        font-size: 40px;
+    }
+
+    .top2
+    {
+        font-size: 13px;
+    }
+
+    .top3
+    {
+        font-size: 12px;
+    }
+
+    .top4
+    {
+        width: 50vw;
+        height: 8vh;
+        font-size: 20px;
+        right: 5px;
+    }
+
+    .top5
+    {
+        top: 12vh;
+        font-size: 10px;
+    }
+
+    .displays
+    {
+    height: 100px;
+    }
+
+    .display1
+    {
+        height: 40px;
+    }
+
+    .display2
+    {
+        height: 60px;
+    }
+
+    .button
+    {
+        height: 70px;
+        width: 70px;
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+}   
+
+@media screen and (max-width: 400p) and (max-height: 880px)
+{
+
+    .button
+    {
+        height: 30px;
+        width: 30px;
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+}
