@@ -1,10 +1,13 @@
-function changeColor()
+for(let i=0;i<localStorage.length;i++)
 {
+    document.querySelector('.tasks').innerHTML += localStorage.getItem(`item${i+1}`);
+}
+
+function changeColor() {
     console.log("Hello");
     let check_color = document.getElementsByTagName("body")[0];
     let current_color = window.getComputedStyle(check_color).backgroundColor;
-    if(current_color !== "rgb(39, 37, 37)")
-    {
+    if (current_color !== "rgb(39, 37, 37)") {
         check_color.style.backgroundColor = "#272525";
         const change1 = document.querySelector('.nav11');
         change1.style.color = "#ffffff";
@@ -24,8 +27,7 @@ function changeColor()
         const change8 = document.querySelector('.nav3');
         change8.style.backgroundColor = "#C1C1C1";
     }
-    else
-    {
+    else {
         check_color.style.backgroundColor = "#ffffff";
         const change1 = document.querySelector('.nav11');
         change1.style.color = "#000000";
@@ -47,18 +49,32 @@ function changeColor()
     }
 }
 
-function add()
-{
-    const task = document.querySelector('#task');
+function add() {
+    const task = document.querySelector('#task').value;
     const add_location = document.querySelector('.tasks')
-    if(task.value == '')
-    {
+    if (task === '') {
         alert("You must write something to add it as task!");
     }
-    else
-    {
-        let li = document.createElement("li");
-        li.innerHTML = task.value;
-        add_location.appendChild(li);
+    else {
+        const add_item = `<li class="item${localStorage.length+1}"><p>${task}</p>
+        <div class='item-option'>
+            <button class="done" onclick="done()"><i class="fa-solid fa-check"></i></button>
+            <button class="delete-item" onclick="del(item${localStorage.length+1})"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        </li>`;
+        localStorage.setItem(`item${localStorage.length+1}`,add_item);
+        add_location.innerHTML += add_item;
     }
+}
+
+function done()
+{
+
+}
+
+function del(item)
+{
+    // console.log(item);
+    // localStorage.removeItem(item);
+    // document.querySelector(item).remove();
 }

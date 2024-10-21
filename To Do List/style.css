@@ -262,4 +262,31 @@ nav
     font-weight: bold;
     font-size: 2vh;
     background-color: #CAA3E1;
+    display: flex;
+    justify-content: space-between;
 }
+
+.item-option
+{
+    display: flex;
+}
+
+.done, .delete-item
+{
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.done:hover, .delete-item:hover
+{
+    cursor: pointer;
+    background-color: gray;
+}
+
