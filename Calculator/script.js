@@ -34,8 +34,10 @@ function button(a)
     {
         if(a === '=')
         {
-            document.querySelector('.display2').innerText = eval(calculate);
-            console.log(eval(calculate));
+            let ans = eval(calculate);
+            document.querySelector('.display2').innerText = ans;
+            console.log(ans);
+            localStorage.setItem('answer',ans.toString());
             return;
         }
         if(a === 'del')
@@ -65,6 +67,14 @@ function button(a)
             displayContent += a;
             calculate += '**';
             document.querySelector('.display1').innerText = displayContent;
+            return;
+        }
+        if(a === 'ans')
+        {
+            let ans = localStorage.getItem('answer');
+            displayContent += 'ANS';
+            calculate += ans;
+            document.querySelector('.display1').innerText += 'ANS';
             return;
         }
         displayContent += a;
