@@ -1,7 +1,4 @@
-for(let i=0;i<localStorage.length;i++)
-{
-    document.querySelector('.tasks').innerHTML += localStorage.getItem(`item${i+1}`);
-}
+
 
 function changeColor() {
     console.log("Hello");
@@ -56,25 +53,17 @@ function add() {
         alert("You must write something to add it as task!");
     }
     else {
-        const add_item = `<li class="item${localStorage.length+1}"><p>${task}</p>
-        <div class='item-option'>
-            <button class="done" onclick="done()"><i class="fa-solid fa-check"></i></button>
-            <button class="delete-item" onclick="del(item${localStorage.length+1})"><i class="fa-solid fa-trash"></i></button>
-        </div>
-        </li>`;
-        localStorage.setItem(`item${localStorage.length+1}`,add_item);
-        add_location.innerHTML += add_item;
+        
     }
 }
 
-function done()
+function done(item)
 {
+    
 
 }
 
 function del(item)
 {
-    // console.log(item);
-    // localStorage.removeItem(item);
-    // document.querySelector(item).remove();
+    
 }
