@@ -1,7 +1,46 @@
-
+for (let i = 0; i < localStorage.length + 1; i++) {
+    let task = JSON.parse(localStorage.getItem(`task${i + 1}`));
+    if (task.complete_status === 'no') {
+        let add_location = document.querySelector('.tasks');
+        let li = document.createElement('li');
+        let div = document.createElement('div');
+        div.innerText = task.task;
+        li.appendChild(div);
+        {
+            let div = document.createElement('div');
+            let needed_time = task.time_of_addition.slice(0, 9);
+            div.classList.add('time');
+            div.innerText = needed_time;
+            li.appendChild(div);
+        }
+        {
+            let div = document.createElement('div');
+            let done_button = document.createElement('button');
+            done_button.classList.add('done');
+            {
+                let i = document.createElement('i');
+                i.classList.add('fa-solid', 'fa-check');
+                done_button.appendChild(i);
+            }
+            done_button.onclick = done();
+            div.appendChild(done_button);
+            let del_button = document.createElement('button');
+            del_button.classList.add('delete-item');
+            {
+                let i = document.createElement('i');
+                i.classList.add('fa-solid', 'fa-trash');
+                del_button.appendChild(i);
+            }
+            del_button.onclick = del();
+            div.appendChild(del_button);
+            div.classList.add('item-option');
+            li.appendChild(div);
+        }
+        add_location.appendChild(li);
+    }
+}
 
 function changeColor() {
-    console.log("Hello");
     let check_color = document.getElementsByTagName("body")[0];
     let current_color = window.getComputedStyle(check_color).backgroundColor;
     if (current_color !== "rgb(39, 37, 37)") {
@@ -53,17 +92,50 @@ function add() {
         alert("You must write something to add it as task!");
     }
     else {
-        
+        const time = new Date();
+        let tasks = {
+            task: task,
+            time_of_addition: time,
+            complete_status: 'no',
+        };
+        localStorage.setItem(`task${localStorage.length + 1}`, JSON.stringify(tasks));
+        let li = document.createElement('li');
+        let div = document.createElement('div');
+        div.innerText = task;
+        li.appendChild(div);
+        {
+            let div = document.createElement('div');
+            let done_button = document.createElement('button');
+            done_button.classList.add('done');
+            {
+                let i = document.createElement('i');
+                i.classList.add('fa-solid', 'fa-check');
+                done_button.appendChild(i);
+            }
+            done_button.onclick = done();
+            div.appendChild(done_button);
+            let del_button = document.createElement('button');
+            del_button.classList.add('delete-item');
+            {
+                let i = document.createElement('i');
+                i.classList.add('fa-solid', 'fa-trash');
+                del_button.appendChild(i);
+            }
+            del_button.onclick = del();
+            div.appendChild(del_button);
+            div.classList.add('item-option');
+            li.appendChild(div);
+        }
+        add_location.appendChild(li);
+
     }
 }
 
-function done(item)
-{
-    
+function done(item) {
+
 
 }
 
-function del(item)
-{
-    
+function del(item) {
+
 }
