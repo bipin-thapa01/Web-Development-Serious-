@@ -3,12 +3,13 @@ for (let i = 0; i < localStorage.length + 1; i++) {
     if (task.complete_status === 'no') {
         let add_location = document.querySelector('.tasks');
         let li = document.createElement('li');
+        li.classList.add(`number${i+1}`);
         let div = document.createElement('div');
         div.innerText = task.task;
         li.appendChild(div);
         {
             let div = document.createElement('div');
-            let needed_time = task.time_of_addition.slice(0, 9);
+            let needed_time = task.time_of_addition;
             div.classList.add('time');
             div.innerText = needed_time;
             li.appendChild(div);
@@ -22,7 +23,9 @@ for (let i = 0; i < localStorage.length + 1; i++) {
                 i.classList.add('fa-solid', 'fa-check');
                 done_button.appendChild(i);
             }
-            done_button.onclick = done();
+            done_button.onclick = function() {
+                done(`task${i+1}`);
+            };
             div.appendChild(done_button);
             let del_button = document.createElement('button');
             del_button.classList.add('delete-item');
@@ -31,7 +34,9 @@ for (let i = 0; i < localStorage.length + 1; i++) {
                 i.classList.add('fa-solid', 'fa-trash');
                 del_button.appendChild(i);
             }
-            del_button.onclick = del();
+            del_button.onclick = function() {
+                del(`task${i+1}`);
+            };
             div.appendChild(del_button);
             div.classList.add('item-option');
             li.appendChild(div);
@@ -95,14 +100,23 @@ function add() {
         const time = new Date();
         let tasks = {
             task: task,
-            time_of_addition: time,
+            time_of_addition: time.toDateString(),
             complete_status: 'no',
         };
         localStorage.setItem(`task${localStorage.length + 1}`, JSON.stringify(tasks));
         let li = document.createElement('li');
+        li.classList.add(`number${localStorage.length}`);
         let div = document.createElement('div');
         div.innerText = task;
         li.appendChild(div);
+        {
+            let string_time = time.toDateString();
+            let div = document.createElement('div');
+            let needed_time = string_time;
+            div.classList.add('time');
+            div.innerText = needed_time;
+            li.appendChild(div);
+        }
         {
             let div = document.createElement('div');
             let done_button = document.createElement('button');
@@ -112,7 +126,10 @@ function add() {
                 i.classList.add('fa-solid', 'fa-check');
                 done_button.appendChild(i);
             }
-            done_button.onclick = done();
+            done_button.classList.add(`task${localStorage.length}`);
+            done_button.onclick = function() {
+                done(`task${localStorage.length}`);
+            };
             div.appendChild(done_button);
             let del_button = document.createElement('button');
             del_button.classList.add('delete-item');
@@ -121,21 +138,26 @@ function add() {
                 i.classList.add('fa-solid', 'fa-trash');
                 del_button.appendChild(i);
             }
-            del_button.onclick = del();
+            del_button.onclick = function() {
+                del(`task${this.localStorage.length}`);
+            };
             div.appendChild(del_button);
             div.classList.add('item-option');
             li.appendChild(div);
         }
         add_location.appendChild(li);
-
     }
 }
 
 function done(item) {
-
-
+    console.log(`I have done the task: ${item}`);
+    let task = JSON.parse(localStorage.getItem(item));
+    task.complete_status = 'yes';
+    document.querySelector(`.number${item.slice(-1)}`).remove();
+    localStorage.removeItem(item);
+    localStorage.setItem(item,JSON.stringify(task));
 }
 
 function del(item) {
-
+    console.log(`I have deleted the task: ${item}`);
 }
