@@ -1,47 +1,54 @@
-for (let i = 0; i < localStorage.length + 1; i++) {
-    let task = JSON.parse(localStorage.getItem(`task${i + 1}`));
-    if (task.complete_status === 'no') {
-        let add_location = document.querySelector('.tasks');
-        let li = document.createElement('li');
-        li.classList.add(`number${i+1}`);
-        let div = document.createElement('div');
-        div.innerText = task.task;
-        li.appendChild(div);
+function mainFunction() {
+    for (let i = 0; i < localStorage.length; i++) {
+        let task = JSON.parse(localStorage.getItem(`task${i + 1}`));
+        console.log(task);
+        if(task === null)
         {
-            let div = document.createElement('div');
-            let needed_time = task.time_of_addition;
-            div.classList.add('time');
-            div.innerText = needed_time;
-            li.appendChild(div);
+            continue;
         }
-        {
+        if (task.complete_status === 'no') {
+            let add_location = document.querySelector('.tasks');
+            let li = document.createElement('li');
+            li.classList.add(`number${i + 1}`);
             let div = document.createElement('div');
-            let done_button = document.createElement('button');
-            done_button.classList.add('done');
-            {
-                let i = document.createElement('i');
-                i.classList.add('fa-solid', 'fa-check');
-                done_button.appendChild(i);
-            }
-            done_button.onclick = function() {
-                done(`task${i+1}`);
-            };
-            div.appendChild(done_button);
-            let del_button = document.createElement('button');
-            del_button.classList.add('delete-item');
-            {
-                let i = document.createElement('i');
-                i.classList.add('fa-solid', 'fa-trash');
-                del_button.appendChild(i);
-            }
-            del_button.onclick = function() {
-                del(`task${i+1}`);
-            };
-            div.appendChild(del_button);
-            div.classList.add('item-option');
+            div.innerText = task.task;
             li.appendChild(div);
+            {
+                let div = document.createElement('div');
+                let needed_time = task.time_of_addition;
+                div.classList.add('time');
+                div.innerText = needed_time;
+                li.appendChild(div);
+            }
+            {
+                let div = document.createElement('div');
+                let done_button = document.createElement('button');
+                done_button.classList.add('done');
+                {
+                    let i = document.createElement('i');
+                    i.classList.add('fa-solid', 'fa-check');
+                    done_button.appendChild(i);
+                }
+                done_button.onclick = function () {
+                    done(li.className);
+                };
+                div.appendChild(done_button);
+                let del_button = document.createElement('button');
+                del_button.classList.add('delete-item');
+                {
+                    let i = document.createElement('i');
+                    i.classList.add('fa-solid', 'fa-trash');
+                    del_button.appendChild(i);
+                }
+                del_button.onclick = function () {
+                    del(li.className);
+                };
+                div.appendChild(del_button);
+                div.classList.add('item-option');
+                li.appendChild(div);
+            }
+            add_location.appendChild(li);
         }
-        add_location.appendChild(li);
     }
 }
 
@@ -127,8 +134,8 @@ function add() {
                 done_button.appendChild(i);
             }
             done_button.classList.add(`task${localStorage.length}`);
-            done_button.onclick = function() {
-                done(`task${localStorage.length}`);
+            done_button.onclick = function () {
+                done(li.className);
             };
             div.appendChild(done_button);
             let del_button = document.createElement('button');
@@ -138,26 +145,83 @@ function add() {
                 i.classList.add('fa-solid', 'fa-trash');
                 del_button.appendChild(i);
             }
-            del_button.onclick = function() {
-                del(`task${this.localStorage.length}`);
+            del_button.onclick = function () {
+                del(`task${localStorage.length}`);
             };
             div.appendChild(del_button);
             div.classList.add('item-option');
             li.appendChild(div);
         }
         add_location.appendChild(li);
+        document.querySelector('#task').value = '';
     }
 }
 
 function done(item) {
-    console.log(`I have done the task: ${item}`);
-    let task = JSON.parse(localStorage.getItem(item));
+    let task = JSON.parse(localStorage.getItem(`task${item.slice(-1)}`));
     task.complete_status = 'yes';
-    document.querySelector(`.number${item.slice(-1)}`).remove();
-    localStorage.removeItem(item);
-    localStorage.setItem(item,JSON.stringify(task));
+    document.querySelector(`.${item}`).remove();
+    localStorage.removeItem(`task${item.slice(-1)}`);
+    localStorage.setItem(`task${item.slice(-1)}`, JSON.stringify(task));
 }
 
 function del(item) {
-    console.log(`I have deleted the task: ${item}`);
+    document.querySelector(`.${item}`).remove();
+    localStorage.removeItem(`item$${item.slice(-1)}`);
+    for(let i=parseInt(item.slice(-1))+1;i<=localStorage.length;i++)
+    {
+        console.log(hi);
+        let item = JSON.parse(localStorage.getItem(`task${i}`));
+        localStorage.removeItem(`task${i}`);
+        localStorage.setItem(`task${i-1}`,JSON.stringify(item));
+    }
 }
+
+function show_history() {
+    if (document.querySelector('.option1').innerText === 'Tasks') {
+        return;
+    }
+    document.querySelector('.tasks').innerHTML = '';
+    if (document.querySelector('.option1').innerText === 'History') {
+        document.querySelector('.option1').innerText = 'Tasks';
+        for (let i = 0; i < localStorage.length; i++) {
+            let task = JSON.parse(localStorage.getItem(`task${i + 1}`));
+            console.log(task);
+            if (task.complete_status === 'yes') {
+                console.log('hi');
+                let add_location = document.querySelector('.tasks');
+                let li = document.createElement('li');
+                li.classList.add(`number${i + 1}`);
+                let div = document.createElement('div');
+                div.innerText = task.task;
+                li.appendChild(div);
+                {
+                    let div = document.createElement('div');
+                    let needed_time = task.time_of_addition;
+                    div.classList.add('time');
+                    div.innerText = needed_time;
+                    li.appendChild(div);
+                }
+                {
+                    let div = document.createElement('div');
+                    let del_button = document.createElement('button');
+                    del_button.classList.add('delete-item');
+                    {
+                        let i = document.createElement('i');
+                        i.classList.add('fa-solid', 'fa-trash');
+                        del_button.appendChild(i);
+                    }
+                    del_button.onclick = function () {
+                        del(`task${i + 1}`);
+                    };
+                    div.appendChild(del_button);
+                    div.classList.add('item-option');
+                    li.appendChild(div);
+                }
+                add_location.appendChild(li);
+            }
+        }
+    }
+}
+
+mainFunction();
