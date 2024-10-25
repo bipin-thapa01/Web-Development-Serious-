@@ -3,16 +3,14 @@ let completedTask = [];
 
 function mainFunction() {
     nonCompleteTask = JSON.parse(localStorage.getItem('nonComplete'));
-    console.log(nonCompleteTask)
-    if(nonCompleteTask !== null)
-    {
+    if (nonCompleteTask !== null) {
         nonCompleteTask.forEach(input => {
-            addElement(input);
+            addElement(input, 0);
         })
     }
 }
 
-function addElement(input) {
+function addElement(input, a) {
     const add_location = document.querySelector('.tasks');
     let li = document.createElement('li');
     li.classList.add(input.class);
@@ -34,17 +32,19 @@ function addElement(input) {
         let div = document.createElement('div');
         div.classList.add('item-option');
         //done button
-        let doneButton = document.createElement('button');
-        doneButton.classList.add('fa-solid', 'fa-check', 'done');
-        doneButton.addEventListener('click', event => {
-            done(input);
-        })
-        div.append(doneButton);
+        if (a === 0) {
+            let doneButton = document.createElement('button');
+            doneButton.classList.add('fa-solid', 'fa-check', 'done');
+            doneButton.addEventListener('click', event => {
+                done(input);
+            })
+            div.append(doneButton);
+        }
         //delete button
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('fa-solid', 'fa-trash', 'delete-item');
         deleteButton.addEventListener('click', event => {
-            del(input);
+            del(input, a);
         })
         div.append(deleteButton);
         li.appendChild(div);
@@ -98,6 +98,10 @@ function changeColor() {
 }
 
 function add() {
+    if (document.querySelector('.option1').innerText === 'Tasks') {
+        alert('You cannot add task from history!');
+        return;
+    }
     const task = document.querySelector('#task').value;
     const add_location = document.querySelector('.tasks');
     if (task === '') {
@@ -120,14 +124,14 @@ function add() {
         }
 
         localStorage.setItem('nonComplete', JSON.stringify(nonCompleteTask));
-        addElement(input);
+        addElement(input, 0);
+        document.querySelector('#task').value = '';
     }
 }
 
 function done(item) {
-    // console.log(item);
     let input = JSON.parse(localStorage.getItem('nonComplete'));
-    let completedTask = JSON.parse(localStorage.getItem('Complete'));
+    completedTask = JSON.parse(localStorage.getItem('Complete'));
     input.forEach(
         (i, index) => {
             if (i.class === item.class) {
@@ -140,6 +144,7 @@ function done(item) {
                     completedTask.push(i);
                 }
                 input.splice(index, 1);
+                nonCompleteTask.splice(index, 1);
                 localStorage.removeItem('nonComplete');
                 localStorage.setItem('nonComplete', JSON.stringify(input));
                 localStorage.setItem('Complete', JSON.stringify(completedTask));
@@ -148,12 +153,58 @@ function done(item) {
     )
 }
 
-function del(item) {
-
+function del(item, a) {
+    if (a === 0) {
+        let input = JSON.parse(localStorage.getItem('nonComplete'));
+        input.forEach(
+            (i, index) => {
+                if (i.class === item.class) {
+                    document.querySelector(`.${i.class}`).remove();
+                    input.splice(index, 1);
+                    nonCompleteTask.splice(index, 1);
+                    localStorage.removeItem('nonComplete');
+                    localStorage.setItem('nonComplete', JSON.stringify(input));
+                }
+            }
+        )
+    }
+    else {
+        let input = JSON.parse(localStorage.getItem('Complete'));
+        input.forEach(
+            (i, index) => {
+                if (i.class === item.class) {
+                    document.querySelector(`.${i.class}`).remove();
+                    input.splice(index, 1);
+                    completedTask.splice(index, 1);
+                    localStorage.removeItem('Complete');
+                    localStorage.setItem('Complete', JSON.stringify(input));
+                }
+            }
+        )
+    }
 }
 
 function show_history() {
-
+    if (document.querySelector('.option1').innerText === 'History') {
+        document.querySelector('.option1').innerText = 'Tasks';
+        let output = JSON.parse(localStorage.getItem('Complete'));
+        if (output !== null) {
+            document.querySelector('.tasks').innerHTML = '';
+            output.forEach(
+                (i, index) => {
+                    addElement(i, 1);
+                }
+            )
+        }
+        else {
+            alert('Non task completed to show in history!');
+        }
+    }
+    else {
+        document.querySelector('.option1').innerText = 'History';
+        document.querySelector('.tasks').innerHTML = '';
+        mainFunction();
+    }
 }
 
 mainFunction();
