@@ -21,12 +21,12 @@
     </nav>
     <div class="enter">
         <div class="enter-box"><input type="text" name="task" id="task" autocomplete="off" placeholder="Enter Task"></div>
-        <div class="add"><button onclick="add()">+</button></div>
+        <div class="add"><button onclick="add()" class="add-button">+</button></div>
     </div>
     <div class="option">
         <button class="option1" onclick="show_history()">History</button>
-        <button class="option2">All Done</button>
-        <button class="option3">Delete All</button>
+        <button class="option2" onclick="complete_all()">All Done</button>
+        <button class="option3" onclick="delete_all()">Delete All</button>
     </div>
     <div class="todo-list">
         <ul class="tasks">

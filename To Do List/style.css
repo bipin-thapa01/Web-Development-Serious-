@@ -94,10 +94,9 @@ nav
 .enter
 {
     margin-top: 10vh;
-    margin-left: 20vw;
-    margin-right: 20vw;
-
-    padding: 10px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding: 5px;
     border-radius: 19px;
     height: 10vh;
     display: flex;
@@ -124,7 +123,7 @@ nav
     border-radius: 19px;
     background-color: #4E4CC1;
     color: white;
-    width: 8%;
+    width: 10%;
     height: 100%;
     position: absolute;
     right: 0px;
@@ -225,6 +224,7 @@ nav
     background-color: #554bd3;
 }
 
+
 #task
 {
     border: 3px solid black;
@@ -233,8 +233,8 @@ nav
 .tasks
 {
     list-style: none;
-    padding-left: 10vh;
-    padding-right: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 50px;
     display: flex;
     flex-direction: column;
@@ -252,6 +252,23 @@ nav
     display: flex;
     justify-content: space-between;
     position: relative;
+}
+
+.text
+{
+    overflow: auto;
+    margin-right: 5px;
+}
+
+.text::-webkit-scrollbar
+{
+    height: 5px;
+    border-radius: 5px;
+}
+
+.text::-webkit-scrollbar-thumb{
+    background-color: rgb(131, 87, 131);
+    border-radius: 5px;
 }
 
 .item-option
@@ -290,4 +307,139 @@ nav
 .time::before
 {
     content:'Date: ';
+}
+
+@media (max-width : 1082px)
+{
+    .todo-list
+    {
+        margin-left: 70px;
+        margin-right: 70px;
+        height: 80vh;
+    }
+
+}
+
+@media (max-width : 720px) {
+    .nav11
+    {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    
+    .nav12
+    {
+        padding-top: 17px;
+        font-size: 12px;
+    }
+    
+    .nav2
+    {
+        column-gap: 4vh;
+        font-size: 2vh;
+    }
+
+    .nav3
+    {
+        width: 5vh;
+        height: 5vh;
+        font-size: 4vh;
+    }
+
+    .option1, .option2, .option3
+    {
+        font-size: 10px;
+    }
+
+    .text
+    {
+        font-size: 17px;
+    }
+
+    .enter-box
+    {
+        width: 85%;
+    }
+
+    .add button
+    {
+        width: 14%;
+        font-size: 50px;
+    }
+
+    .option{
+        margin-top: 30px;
+        padding-top: 0px;
+        padding-left: 20%;
+    }
+
+    .option1, .option2, .option3
+    {
+        width: 200px;
+        font-size: 18px;
+    }
+
+    .todo-list
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+        height: 80vh;
+    }
+}
+
+@media (max-width : 570px)
+{
+    .enter
+    {
+        margin-top: 5vh;
+        height: 8vh;
+        margin-bottom: 0vh;
+    }
+
+    .add button
+    {
+        font-size: 100px;
+    }   
+}
+
+@media (max-width : 570px)
+{
+    .nav11
+    {
+        font-size: 25px;
+    }
+    
+    .nav12
+    {
+        font-size: 8px;
+    }
+    
+    .nav2
+    {
+        column-gap: 3vh;
+        font-size: 15px;
+    }
+
+    .nav3
+    {
+        width: 4vh;
+        height: 4vh;
+        font-size: 3vh;
+    }
+
+    .add button
+    {
+        width: 14%;
+        font-size: 35px;
+    }
+
+    .option1, .option2, .option3
+    {
+        font-size: 13px;
+    }
+
+    .time
+    {
+        font-size: 12px;
+    }
 }

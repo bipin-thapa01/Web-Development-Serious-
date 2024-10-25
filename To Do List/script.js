@@ -1,6 +1,15 @@
 let nonCompleteTask = [];
 let completedTask = [];
 
+let width = window.innerWidth;
+if(width <= 720)
+{
+    let child1 = document.querySelector('.nav21 span');
+    document.querySelector('.nav21').removeChild(child1);
+    let child2 = document.querySelector('.nav22 span');
+    document.querySelector('.nav22').removeChild(child2);
+}
+
 function mainFunction() {
     nonCompleteTask = JSON.parse(localStorage.getItem('nonComplete'));
     if (nonCompleteTask !== null) {
@@ -13,11 +22,12 @@ function mainFunction() {
 function addElement(input, a) {
     const add_location = document.querySelector('.tasks');
     let li = document.createElement('li');
-    li.classList.add(input.class);
+    li.classList.add(input.class,'task');
     //main text append
     {
         let div = document.createElement('div');
         div.innerText = input.goal;
+        div.classList.add('text');
         li.appendChild(div);
     }
     //time append
@@ -197,13 +207,58 @@ function show_history() {
             )
         }
         else {
-            alert('Non task completed to show in history!');
+            alert('None task completed to show in history!');
         }
     }
     else {
         document.querySelector('.option1').innerText = 'History';
         document.querySelector('.tasks').innerHTML = '';
         mainFunction();
+    }
+}
+
+function complete_all() {
+    if (document.querySelector('.option1').innerText === 'Tasks') {
+        alert('Task in History cannot be Completed!');
+        return;
+    }
+    let input = JSON.parse(localStorage.getItem('nonComplete'));
+    let output = JSON.parse(localStorage.getItem('Complete'));
+    document.querySelector('.tasks').innerHTML = '';
+    input.forEach(
+        (i, index) => {
+            if (output !== null) {
+                output.push(i);
+            }
+            else {
+                output = [i];
+            }
+            if (completedTask !== null) {
+                completedTask.push(i);
+            }
+            else {
+                completedTask = [i];
+            }
+        }
+    )
+    nonCompleteTask = [];
+    localStorage.removeItem('Complete');
+    localStorage.removeItem('nonComplete');
+    localStorage.setItem('Complete', JSON.stringify(output));
+}
+
+function delete_all() {
+    if (document.querySelector('.option1').innerText === 'History')
+    {
+        localStorage.removeItem('nonComplete');
+        nonCompleteTask = [];
+        document.querySelector('.tasks').innerHTML = '';
+    }
+    else
+    {
+        localStorage.removeItem('Complete');
+        completedTask = [];
+        document.querySelector('.tasks').innerHTML = '';
     }
 }
 
