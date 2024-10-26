@@ -1,15 +1,6 @@
 let nonCompleteTask = [];
 let completedTask = [];
 
-let width = window.innerWidth;
-if(width <= 720)
-{
-    let child1 = document.querySelector('.nav21 span');
-    document.querySelector('.nav21').removeChild(child1);
-    let child2 = document.querySelector('.nav22 span');
-    document.querySelector('.nav22').removeChild(child2);
-}
-
 function mainFunction() {
     nonCompleteTask = JSON.parse(localStorage.getItem('nonComplete'));
     if (nonCompleteTask !== null) {

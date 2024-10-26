@@ -13,13 +13,13 @@ body
 
 nav
 {
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 4px solid black;
-    height: 8vh;
+    height: 80px;
 }
 
 .nav1 a
@@ -38,21 +38,21 @@ nav
 
 .nav11
 {
-    font-size: 4vh;
+    font-size: 35px;
     font-weight: bold;
 }
 
 .nav12
 {
     padding-top: 18px;
-    font-size: 2vh;
+    font-size: 20px;
 }
 
 .nav2
 {
     display: flex;
-    column-gap: 8vh;
-    font-size: 3vh;
+    column-gap: 100px;
+    font-size: 20px;
     color: white;
 }
 
@@ -76,9 +76,9 @@ nav
 {
     border: 2px solid black;
     border-radius: 50%;
-    width: 6vh;
-    height: 6vh;
-    font-size: 4vh;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,12 +93,12 @@ nav
 
 .enter
 {
-    margin-top: 10vh;
+    margin-top: 80px;
     margin-left: 10vw;
     margin-right: 10vw;
     padding: 5px;
     border-radius: 19px;
-    height: 10vh;
+    height: 90px;
     display: flex;
     position: relative;
     background-color: #B994E9;
@@ -128,7 +128,7 @@ nav
     position: absolute;
     right: 0px;
     top: 0px;
-    font-size: 9vh;
+    font-size: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,7 +157,7 @@ nav
     margin-left: 20vw;
     margin-right: 20vw;
     margin-top: 5vh;
-    height: 60vh;
+    height: 600px;
     border-radius: 5px;
     border: 2px solid black;
     background-color: #9D73B1;
@@ -247,7 +247,7 @@ nav
     border-radius: 10px;
     padding: 20px;
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 18px;
     background-color: #CAA3E1;
     display: flex;
     justify-content: space-between;
@@ -315,7 +315,6 @@ nav
     {
         margin-left: 70px;
         margin-right: 70px;
-        height: 80vh;
     }
 
 }
@@ -335,20 +334,24 @@ nav
     
     .nav2
     {
-        column-gap: 4vh;
-        font-size: 2vh;
+        font-size: 30px;
+    }
+
+    .nav21 span
+    {
+        display: none;
+    }
+
+    .nav22 span
+    {
+        display: none;
     }
 
     .nav3
     {
-        width: 5vh;
-        height: 5vh;
-        font-size: 4vh;
-    }
-
-    .option1, .option2, .option3
-    {
-        font-size: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 35px;
     }
 
     .text
@@ -383,7 +386,11 @@ nav
     {
         margin-left: 20px;
         margin-right: 20px;
-        height: 80vh;
+    }
+
+    .tasks
+    {
+        row-gap: 10px;
     }
 }
 
@@ -391,19 +398,16 @@ nav
 {
     .enter
     {
-        margin-top: 5vh;
-        height: 8vh;
-        margin-bottom: 0vh;
+        margin-top: 60px;
+        height: 80px;
+        margin-bottom: 0px;
     }
 
     .add button
     {
         font-size: 100px;
     }   
-}
 
-@media (max-width : 570px)
-{
     .nav11
     {
         font-size: 25px;
@@ -416,15 +420,15 @@ nav
     
     .nav2
     {
-        column-gap: 3vh;
-        font-size: 15px;
+        column-gap: 70px;
+        font-size: 25px;
     }
 
     .nav3
     {
-        width: 4vh;
-        height: 4vh;
-        font-size: 3vh;
+        width: 35px;
+        height: 35px;
+        font-size: 30px;
     }
 
     .add button
@@ -440,6 +444,94 @@ nav
 
     .time
     {
-        font-size: 12px;
+        font-size: 10px;
+    }
+
+    .text
+    {
+        font-size: 16px;
+    }
+
+    .item-option button
+    {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .tasks
+    {
+        padding: 15px 18px;
+    }
+}
+
+@media  (max-width : 450px) {
+    .option1, .option2, .option3
+    {
+        font-size: 10px;
+        width: 100px;
+    }
+
+    .todo-list
+    {
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .enter
+    {
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .option{
+        margin-top: 30px;
+    }
+
+    .tasks
+    {
+        padding: 10px;
+    }
+
+    .tasks li
+    {
+        padding: 20px 8px;
+    }
+
+    .nav2
+    {
+        column-gap: 25px;
+    }
+}
+
+@media (max-width : 370px) {
+    .nav11
+    {
+        font-size: 20px;
+    }
+    
+    .nav12
+    {
+        font-size: 6px;
+    }
+    
+    .nav2
+    {
+        font-size: 20px;
+    }
+
+    .nav3
+    {
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+    }
+
+    .enter
+    {
+        margin-left: 3px;
+        margin-right: 3px;
     }
 }
