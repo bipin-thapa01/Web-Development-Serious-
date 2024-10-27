@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.holder
+{
+  position: relative;
+  width: 200px;
+  height: 300px;
+  border: 2px solid black;
+}
+
+.cards
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in;
+}
+
+.cards-rotate
+{
+  transform: rotateY(180deg);
+}
+
+.cards-rotate-again
+{
+  transform: rotateY(180deg);
+}
+
+.card1
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
+}
+
+.card2
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.card1 img
+{
+  width: 100%;
+  height: 100%;
+}
+
+.card2 video
+{
+  width: 100%;
+  height: 100%;
+}
