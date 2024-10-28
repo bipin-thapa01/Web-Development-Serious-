@@ -74,6 +74,32 @@ body
   text-align: center;
 }
 
+.intro1
+{
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+intro1::after
+{
+  content: '';
+  position: absolute;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border-left: 2px solid white;
+  animation: typing 1.5s steps(37) infinite;
+}
+
+@keyframes typing
+{
+  100%
+  {
+    left: 100%;
+  }
+}
+
 .button
 {
   width: 100px;

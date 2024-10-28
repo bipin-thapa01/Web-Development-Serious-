@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memory Game</title>
+  <title>Mind Game - Easy Mode</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="game.css">
 </head>
 
 <body>
-
   <nav class="nav">
     <div class="nav1"><a href="index.html">
         <p>Memory Game</p> <span>by Bipin</span>
@@ -25,20 +25,24 @@
             href="https://www.facebook.com/bipin.thapasingh/" class="link" target="_blank">Facebook</a></span></div>
     </div>
   </nav>
-  <div class="main-box">
-    <div class="intro">
-      <div class="intro1">Welcome to Memory Game
-        Ready to Play?</div> <br>
-      Choose game Level:
-    </div>
 
-    <button class="easy button">Easy Level</button>
-    <button class="medium button">Medium Level</button>
-    <button class="hard button">Difficult Level</button>
+  <div class="info">
+    <div class="back"><i class="fa-solid fa-arrow-left"></i></div>
+    <div class="level">Easy Level</div>
+    <button onclick="startGameTimer()">Play</button>
+    <span>Timer</span>
+    <div class="timer">00 : 00 : 00</div>
   </div>
 
 
-  <script src="main.js"></script>
+
+  <!-- <div class="holder">
+    <div class="cards card-holder1">
+      <div class="card1">A</div>
+      <div class="card2">B<div>
+    </div>
+  </div> -->
+  <script src="script.js"></script>
 </body>
 
 </html>

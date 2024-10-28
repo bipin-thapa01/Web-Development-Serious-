@@ -1,0 +1,27 @@
+.info
+{
+  display: flex;
+  position: absolute;
+  top: 300px;
+    width: 100vw;
+  justify-content: center;
+  column-gap: 40px;
+}
+
+.back
+{
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back:hover
+{
+  font-size: 20px;
+  /* transition: font-size 0.2s ease-in; */
+  cursor: pointer;
+}
