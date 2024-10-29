@@ -21,17 +21,16 @@
 let playStatus = 'no';
 
 function startGameTimer(second = 0, minute = 0, hour = 0, checkLoop = 0) {
-  if(checkLoop === 1)
-  {
+  if (checkLoop === 1) {
     playStatus = 'no';
   }
-  if(playStatus === 'yes')
-  {
-    alert(`You are already playing the game!
-If you want to play new game, exit or complete the current one.`);
+  if (playStatus === 'yes') {
+    console.log('Hi');
+    alert(`The game is paused. Press ok to play again!`);
     return;
   }
   playStatus = 'yes';
+  document.querySelector('.play-pause').innerText = 'Pause';
   document.querySelector('.timer').innerText = '';
   if (second < 10) {
     second = `0${second}`;
@@ -63,7 +62,7 @@ If you want to play new game, exit or complete the current one.`);
   }, 1000);
 }
 
-document.querySelector('.back').addEventListener('click', event =>
-{
+
+document.querySelector('.back').addEventListener('click', event => {
   window.location.href = 'index.html';
 });
