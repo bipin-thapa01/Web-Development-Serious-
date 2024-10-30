@@ -1,32 +1,78 @@
-// const { start } = require("@popperjs/core");
+let cardsCount = document.querySelector('.game-section').childElementCount;
+let imageUse = [
+  'Resources/luffy.jpg', 'Resources/luffy.jpg', 'Resources/zoro.jpg',
+  'Resources/zoro.jpg', 'Resources/sanji.jpg', 'Resources/sanji.jpg',
+  'Resources/robin.jpg', 'Resources/robin.jpg'
+];
+shuffleImage();
 
-// let value = document.querySelector('.cards');
-// let count = 0;
+//for creating an array wth 'n' size and containing object as its element
+let cardDetails = Array.from({ length: cardsCount }, (_, index) => ({
+  id: index,
+  name: imageUse[index]
+}));
+console.log(imageUse);
+console.log(cardDetails);
 
-// value.addEventListener('click', event => {
-//   if (count % 2 == 0) {
-//     console.log(count);
-//     value.classList.remove('cards-rotate-again');
-//     value.classList.add('cards-rotate');
-//     count++;
-//   }
-//   else {
-//     console.log(count);
-//     value.classList.remove('cards-rotate');
-//     value.classList.remove('cards-rotate-again');
-//     count++;
-//   }
-// });
+//for putting random image in card2
+for (let i = cardsCount; i > 0; i--) {
+  let img = document.createElement('img');
+  img.src = imageUse.pop();
+  document.querySelector(`.card${i}2`).appendChild(img);
+}
 
+//for shuffle of image
+function shuffleImage() {
+  for (let i = cardsCount - 1; i >= 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = imageUse[i];
+    imageUse[i] = imageUse[j];
+    imageUse[j] = temp;
+  }
+}
+
+let count = [];
+let clickCount = 0;
+let allCardChoosenList = [];
+
+//for adding a even which card is clicked and also to compare to cards
+for (let i = 1; i <= cardsCount; i++) {
+  count.push(0);
+  let value = document.querySelector(`.card-holder${i}`);
+  value.addEventListener(`click`, event => {
+    if (document.querySelector('.play-pause').innerText === 'Pause') {
+      value.classList.add('cards-rotate');
+      allCardChoosenList.push(value);
+      clickCount++;
+      console.log(clickCount);
+      if (clickCount % 2 == 0) {
+        document.querySelector('.try').innerText = `Try: ${clickCount/2}`;
+        let check1 = allCardChoosenList.pop();
+        check1 = check1.classList[1].substr(-1);
+        let check2 = allCardChoosenList.pop();
+        check2 = check2.classList[1].substr(-1);
+        if (cardDetails[check2 - 1].name !== cardDetails[check1 - 1].name) {
+          setTimeout(()=>
+          {
+            document.querySelector(`.card-holder${check2}`).classList.remove(`cards-rotate`);
+            document.querySelector(`.card-holder${check1}`).classList.remove(`cards-rotate`);
+          },1500);
+        }
+      }
+    }
+    count[i - 1]++;
+  });
+}
+
+
+//for counting the time for which the game is played
 let playStatus = 'no';
-
 function startGameTimer(second = 0, minute = 0, hour = 0, checkLoop = 0) {
   if (checkLoop === 1) {
     playStatus = 'no';
   }
   if (playStatus === 'yes') {
-    console.log('Hi');
-    alert(`The game is paused. Press ok to play again!`);
+    alert(`The game is paused. Press ok to resume!`);
     return;
   }
   playStatus = 'yes';
@@ -62,7 +108,7 @@ function startGameTimer(second = 0, minute = 0, hour = 0, checkLoop = 0) {
   }, 1000);
 }
 
-
+//for going to homepage
 document.querySelector('.back').addEventListener('click', event => {
   window.location.href = 'index.html';
 });
