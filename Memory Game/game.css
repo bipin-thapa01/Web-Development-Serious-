@@ -167,12 +167,14 @@
 
 .try
 {
-  border: 2px solid;
   width: 90px;
+  color: yellowgreen;
+  font-weight: bold;
 }
 
 .correct
 {
-  border: 2px solid;
   width: 120px;
+  color: green;
+  font-weight: bold;
 }

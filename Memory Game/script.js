@@ -32,6 +32,7 @@ function shuffleImage() {
 }
 
 let count = [];
+let correctCount = 0;
 let clickCount = 0;
 let allCardChoosenList = [];
 
@@ -57,6 +58,11 @@ for (let i = 1; i <= cardsCount; i++) {
             document.querySelector(`.card-holder${check2}`).classList.remove(`cards-rotate`);
             document.querySelector(`.card-holder${check1}`).classList.remove(`cards-rotate`);
           },1500);
+        }
+        else
+        {
+          correctCount++;
+          document.querySelector('.correct').innerText = `Correct: ${correctCount}`;
         }
       }
     }
@@ -112,3 +118,5 @@ function startGameTimer(second = 0, minute = 0, hour = 0, checkLoop = 0) {
 document.querySelector('.back').addEventListener('click', event => {
   window.location.href = 'index.html';
 });
+
+//for new game
