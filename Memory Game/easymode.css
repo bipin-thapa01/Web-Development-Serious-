@@ -12,7 +12,7 @@
 .game-section
 {
   height: 100%;
-  width: 604.4px;
+  width: 900px;
   border: 2px solid white;
   border-radius: 10px;
   display: flex;
@@ -24,7 +24,7 @@
 }
 
 .holder {
-  width: 137.6px;
-  height: 185.85px;
+  width: 211px;
+  height: 285px;
   position: relative;
 }

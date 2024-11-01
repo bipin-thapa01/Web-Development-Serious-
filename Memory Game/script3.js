@@ -5,7 +5,9 @@ let cardsCount = document.querySelector('.game-section').childElementCount;
 let imageUse = [
   'Resources/luffy.jpg', 'Resources/luffy.jpg', 'Resources/zoro.jpg',
   'Resources/zoro.jpg', 'Resources/sanji.jpg', 'Resources/sanji.jpg',
-  'Resources/robin.jpg', 'Resources/robin.jpg'
+  'Resources/robin.jpg', 'Resources/robin.jpg', 'Resources/franky.jpg',
+  'Resources/franky.jpg', 'Resources/nami.jpg', 'Resources/nami.jpg', 
+  'Resources/chopper.jpg', 'Resources/chopper.jpg', 'Resources/shanks.jpg', 'Resources/shanks.jpg', 'Resources/katakuri.jpg', 'Resources/katakuri.jpg'
 ];
 shuffleImage();
 
@@ -14,8 +16,6 @@ let cardDetails = Array.from({ length: cardsCount }, (_, index) => ({
   id: index,
   name: imageUse[index]
 }));
-console.log(imageUse);
-console.log(cardDetails);
 
 //for putting random image in card2
 for (let i = cardsCount; i > 0; i--) {
@@ -48,13 +48,18 @@ for (let i = 1; i <= cardsCount; i++) {
       value.classList.add('cards-rotate');
       allCardChoosenList.push(value);
       clickCount++;
-      console.log(clickCount);
       if (clickCount % 2 == 0) {
         document.querySelector('.try').innerText = `Try: ${clickCount / 2}`;
         let check1 = allCardChoosenList.pop();
-        check1 = check1.classList[1].substr(-1);
         let check2 = allCardChoosenList.pop();
-        check2 = check2.classList[1].substr(-1);
+        check1 = check1.classList[1].substr(-2, 2);
+        check2 = check2.classList[1].substr(-2, 2);
+        if (!(check1 >= 10)) {
+          check1 = check1.substr(-1);
+        }
+        if (!(check2 >= 10)) {
+          check2 = check2.substr(-1);
+        }
         if (cardDetails[check2 - 1].name !== cardDetails[check1 - 1].name) {
           setTimeout(() => {
             document.querySelector(`.card-holder${check2}`).classList.remove(`cards-rotate`);
@@ -68,7 +73,7 @@ for (let i = 1; i <= cardsCount; i++) {
           }, 1500);
           correctCount++;
           document.querySelector('.correct').innerText = `Correct: ${correctCount}`;
-          if (correctCount === 4) {
+          if (correctCount === 9) {
             setTimeout(() => {
               document.querySelector('.nav').style.filter = 'blur(10px)';
               document.querySelector('.info-container').style.filter = 'blur(10px)';
@@ -172,7 +177,7 @@ document.querySelector('.choice4').addEventListener('click',
   });
 
 document.querySelector('.game-complete-choice1').addEventListener('click', event => {
-  window.location.href = 'easy_mode.html';
+  window.location.href = 'hard_mode.html';
 })
 
 document.querySelector('.game-complete-choice2').addEventListener('click', event => {

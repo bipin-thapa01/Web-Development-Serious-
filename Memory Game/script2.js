@@ -1,3 +1,6 @@
+let second = 0;
+let minute = 0;
+let hour = 0;
 let cardsCount = document.querySelector('.game-section').childElementCount;
 let imageUse = [
   'Resources/luffy.jpg', 'Resources/luffy.jpg', 'Resources/zoro.jpg',
@@ -47,34 +50,45 @@ for (let i = 1; i <= cardsCount; i++) {
       allCardChoosenList.push(value);
       clickCount++;
       if (clickCount % 2 == 0) {
-        document.querySelector('.try').innerText = `Try: ${clickCount/2}`;
+        document.querySelector('.try').innerText = `Try: ${clickCount / 2}`;
         let check1 = allCardChoosenList.pop();
         let check2 = allCardChoosenList.pop();
-        check1 = check1.classList[1].substr(-2,2);
-        check2 = check2.classList[1].substr(-2,2);
+        check1 = check1.classList[1].substr(-2, 2);
+        check2 = check2.classList[1].substr(-2, 2);
         console.log(check1);
         console.log(check2);
-        if(!(check1 >= 10))
-        {
+        if (!(check1 >= 10)) {
           check1 = check1.substr(-1);
         }
-        if(!(check2 >= 10))
-        {
+        if (!(check2 >= 10)) {
           check2 = check2.substr(-1);
         }
         console.log(check1);
         console.log(check2);
         if (cardDetails[check2 - 1].name !== cardDetails[check1 - 1].name) {
-          setTimeout(()=>
-          {
+          setTimeout(() => {
             document.querySelector(`.card-holder${check2}`).classList.remove(`cards-rotate`);
             document.querySelector(`.card-holder${check1}`).classList.remove(`cards-rotate`);
-          },1500);
+          }, 1500);
         }
-        else
-        {
+        else {
+          setTimeout(() => {
+            document.querySelector(`.card-holder${check2}`).style.display = 'none';
+            document.querySelector(`.card-holder${check1}`).style.display = 'none';
+          }, 1500);
           correctCount++;
           document.querySelector('.correct').innerText = `Correct: ${correctCount}`;
+          if (correctCount === 6) {
+            setTimeout(() => {
+              document.querySelector('.nav').style.filter = 'blur(10px)';
+              document.querySelector('.info-container').style.filter = 'blur(10px)';
+              document.querySelector('.game-section-container').style.filter = 'blur(10px)';
+              document.querySelector('.game-score').style.filter = 'blur(10px)';
+              document.querySelector('.game-completed').style.display = 'flex';
+              document.querySelector('.data').innerText += clickCount / 2;
+              document.querySelector('.time-data').innerText += ` ${hour} : ${minute} : ${second}`;
+            }, 2000);
+          }
         }
       }
     }
@@ -85,7 +99,7 @@ for (let i = 1; i <= cardsCount; i++) {
 
 //for counting the time for which the game is played
 let playStatus = 'no';
-function startGameTimer(second = 0, minute = 0, hour = 0, checkLoop = 0) {
+function startGameTimer(checkLoop = 0) {
   if (checkLoop === 1) {
     playStatus = 'no';
   }
@@ -122,7 +136,7 @@ function startGameTimer(second = 0, minute = 0, hour = 0, checkLoop = 0) {
     if (hour > 3) {
       return;
     }
-    startGameTimer(second, minute, hour, 1);
+    startGameTimer(1);
   }, 1000);
 }
 
@@ -133,41 +147,44 @@ document.querySelector('.back').addEventListener('click', event => {
 
 //for new game
 document.querySelector('.new-game').addEventListener('click',
-event =>
-{
-  document.querySelector('.nav').style.filter = 'blur(10px)';
-  document.querySelector('.info-container').style.filter = 'blur(10px)';
-  document.querySelector('.game-section-container').style.filter = 'blur(10px)';
-  document.querySelector('.game-score').style.filter = 'blur(10px)';
-  document.querySelector('.new-game-choice').style.display = 'flex';
-});
+  event => {
+    document.querySelector('.nav').style.filter = 'blur(10px)';
+    document.querySelector('.info-container').style.filter = 'blur(10px)';
+    document.querySelector('.game-section-container').style.filter = 'blur(10px)';
+    document.querySelector('.game-score').style.filter = 'blur(10px)';
+    document.querySelector('.new-game-choice').style.display = 'flex';
+  });
 
 //new game easy level
 document.querySelector('.choice1').addEventListener('click',
-event =>
-{
-  window.location.href = 'easy_mode.html';
-});
+  event => {
+    window.location.href = 'easy_mode.html';
+  });
 
 //new game medium level
 document.querySelector('.choice2').addEventListener('click',
-event =>
-{
-  window.location.href = 'medium_mode.html';
-});
+  event => {
+    window.location.href = 'medium_mode.html';
+  });
 
 document.querySelector('.choice3').addEventListener('click',
-event =>
-{
-  window.location.href = 'hard_mode.html';
-});
+  event => {
+    window.location.href = 'hard_mode.html';
+  });
 
 document.querySelector('.choice4').addEventListener('click',
-event =>
-{
-  document.querySelector('.nav').style.filter = 'blur(0px)';
-  document.querySelector('.info-container').style.filter = 'blur(0px)';
-  document.querySelector('.game-section-container').style.filter = 'blur(0px)';
-  document.querySelector('.game-score').style.filter = 'blur(0px)';
-  document.querySelector('.new-game-choice').style.display = 'none';
-});
+  event => {
+    document.querySelector('.nav').style.filter = 'blur(0px)';
+    document.querySelector('.info-container').style.filter = 'blur(0px)';
+    document.querySelector('.game-section-container').style.filter = 'blur(0px)';
+    document.querySelector('.game-score').style.filter = 'blur(0px)';
+    document.querySelector('.new-game-choice').style.display = 'none';
+  });
+
+document.querySelector('.game-complete-choice1').addEventListener('click', event => {
+  window.location.href = 'medium_mode.html';
+})
+
+document.querySelector('.game-complete-choice2').addEventListener('click', event => {
+  window.location.href = 'index.html';
+})
