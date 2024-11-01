@@ -2,7 +2,8 @@ let cardsCount = document.querySelector('.game-section').childElementCount;
 let imageUse = [
   'Resources/luffy.jpg', 'Resources/luffy.jpg', 'Resources/zoro.jpg',
   'Resources/zoro.jpg', 'Resources/sanji.jpg', 'Resources/sanji.jpg',
-  'Resources/robin.jpg', 'Resources/robin.jpg'
+  'Resources/robin.jpg', 'Resources/robin.jpg', 'Resources/franky.jpg',
+  'Resources/franky.jpg', 'Resources/nami.jpg', 'Resources/nami.jpg'
 ];
 shuffleImage();
 
@@ -36,7 +37,7 @@ let correctCount = 0;
 let clickCount = 0;
 let allCardChoosenList = [];
 
-//for adding a even which card is clicked and also to compare to cards
+//for adding an event to make card clickable and also to compare to cards
 for (let i = 1; i <= cardsCount; i++) {
   count.push(0);
   let value = document.querySelector(`.card-holder${i}`);
@@ -45,13 +46,24 @@ for (let i = 1; i <= cardsCount; i++) {
       value.classList.add('cards-rotate');
       allCardChoosenList.push(value);
       clickCount++;
-      console.log(clickCount);
       if (clickCount % 2 == 0) {
         document.querySelector('.try').innerText = `Try: ${clickCount/2}`;
         let check1 = allCardChoosenList.pop();
-        check1 = check1.classList[1].substr(-1);
         let check2 = allCardChoosenList.pop();
-        check2 = check2.classList[1].substr(-1);
+        check1 = check1.classList[1].substr(-2,2);
+        check2 = check2.classList[1].substr(-2,2);
+        console.log(check1);
+        console.log(check2);
+        if(!(check1 >= 10))
+        {
+          check1 = check1.substr(-1);
+        }
+        if(!(check2 >= 10))
+        {
+          check2 = check2.substr(-1);
+        }
+        console.log(check1);
+        console.log(check2);
         if (cardDetails[check2 - 1].name !== cardDetails[check1 - 1].name) {
           setTimeout(()=>
           {
@@ -120,3 +132,42 @@ document.querySelector('.back').addEventListener('click', event => {
 });
 
 //for new game
+document.querySelector('.new-game').addEventListener('click',
+event =>
+{
+  document.querySelector('.nav').style.filter = 'blur(10px)';
+  document.querySelector('.info-container').style.filter = 'blur(10px)';
+  document.querySelector('.game-section-container').style.filter = 'blur(10px)';
+  document.querySelector('.game-score').style.filter = 'blur(10px)';
+  document.querySelector('.new-game-choice').style.display = 'flex';
+});
+
+//new game easy level
+document.querySelector('.choice1').addEventListener('click',
+event =>
+{
+  window.location.href = 'easy_mode.html';
+});
+
+//new game medium level
+document.querySelector('.choice2').addEventListener('click',
+event =>
+{
+  window.location.href = 'medium_mode.html';
+});
+
+document.querySelector('.choice3').addEventListener('click',
+event =>
+{
+  window.location.href = 'hard_mode.html';
+});
+
+document.querySelector('.choice4').addEventListener('click',
+event =>
+{
+  document.querySelector('.nav').style.filter = 'blur(0px)';
+  document.querySelector('.info-container').style.filter = 'blur(0px)';
+  document.querySelector('.game-section-container').style.filter = 'blur(0px)';
+  document.querySelector('.game-score').style.filter = 'blur(0px)';
+  document.querySelector('.new-game-choice').style.display = 'none';
+});
