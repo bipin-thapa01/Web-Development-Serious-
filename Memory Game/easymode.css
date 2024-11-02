@@ -72,6 +72,7 @@
     width: 125.85px;
     height: 170px;
   }
+
   .game-section {
     width: 557.4px;
   }
@@ -82,7 +83,7 @@
   }
 
   .game-score {
-    top: 800px;
+    top: 670px;
     height: 35px;
     justify-content: space-between;
   }
@@ -94,5 +95,68 @@
 
 @media (max-width:570px)
 {
-  
+  .holder {
+    width: 88.842px;
+    height: 120px;
+  }
+  .game-section {
+    width: 220px;
+  }
+  .game-section-container {
+    height: 530px;
+    top: 170px;
+  }
+  .game-score {
+    top: 720px;
+    padding: 0px 10px;
+    border-radius: 10px;
+  }
+  .info {
+    padding: 5px 10px;
+    column-gap: 20px;
+    width: 400px;
+  }
+  .timer
+  {
+    font-size: 10px;
+  }
+  .level
+  {
+    font-size: 10px;
+  }
+  .play-pause {
+    width: 70px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width:380px)
+{
+  .info {
+    padding: 5px 5px;
+    column-gap: 10px;
+    width: 300px;
+    border-radius: 10px;
+  }
+  .timer
+  {
+    font-size: 8px;
+  }
+  .level
+  {
+    font-size: 8px;
+  }
+  .show-timer
+  {
+    font-size: 8px;
+  }
+  .back
+  {
+    font-size: 12px;
+    width: 15px;
+    padding-right: 15px;
+  }
+  .game-score {
+    font-size: 15px;
+  }
 }
