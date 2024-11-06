@@ -82,6 +82,22 @@ for (let i = 1; i <= cardsCount; i++) {
               document.querySelector('.game-completed').style.display = 'flex';
               document.querySelector('.data').innerText += clickCount / 2;
               document.querySelector('.time-data').innerText += ` ${hour} : ${minute} : ${second}`;
+              if(clickCount/2 <= 11)
+              {
+                document.querySelector('.score').innerText += 'Excellent';
+              }  
+              else if(clickCount/2 <= 14)
+              {
+                document.querySelector('.score').innerText += 'Good';
+              }  
+              else if(clickCount/2 <= 17)
+              {
+                document.querySelector('.score').innerText += 'Mid';
+              }
+              else if(clickCount/2 > 17)
+              {
+                document.querySelector('.score').innerText += 'You Dumb?';
+              } 
             }, 2000);
           }
         }
