@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./dict/*.{html,js}'],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        'xsm' : '10px',
+      }
+    },
   },
   plugins: [],
 }
