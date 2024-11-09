@@ -16,33 +16,45 @@
       <div class="sm:text-xs text-end h-2 text-xsm">by Bipin</div>
     </div>
     <div class="flex gap-x-4 items-center ">
-      <i class="fa-brands fa-github text-2xl"></i>
-      <div><a href="https://github.com/bipin-thapa01" target="_blank">Github</a></div>
+      <a href="https://github.com/bipin-thapa01" target="_blank"><i
+          class="fa-brands fa-github sm:text-2xl text-lg"></i></a>
+      <div class="hidden sm:block"><a href="https://github.com/bipin-thapa01" target="_blank"
+          class="sm:w-4 w-2">Github</a></div>
     </div>
-    <div class="flex gap-x-4 items-center">
-      <i class="fa-brands fa-facebook text-2xl"></i>
-      <div>
-        <a href="">Facebook</a>
-      </div>
+    <div class="flex gap-x-4 items-center ">
+      <a href="https://www.facebook.com/bipin.thapasingh/" target="_blank"><i
+          class="fa-brands fa-facebook sm:text-2xl text-lg"></i></a>
+      <div class="hidden sm:block"><a href="https://www.facebook.com/bipin.thapasingh/" target="_blank"
+          class="sm:w-4 w-2">Facebook</a></div>
     </div>
   </nav>
-  <div class="absolute top-60 w-screen sm:h-72 flex justify-center ">
-    <div class="flex flex-col gap-y-7 items-center border-2 p-3 rounded-md">
-      <div class="flex gap-x-7 items-center border-b-2 pb-2">
+  <div class="absolute top-32 sm:top-60 w-screen sm:h-72 h-auto flex justify-center ">
+    <div class="flex flex-col gap-y-7 items-center border-2 p-3 rounded-md sm:w-auto w-80">
+      <div class="flex sm:flex-row flex-col gap-y-1 sm:gap-x-7 items-center border-b-2 pb-2">
         <label for="password-length">Password Length:</label>
         <input type="text" id="password-length" placeholder="Enter Required Length" autocomplete="off"
           class="text-black rounded-md p-2 pass-length">
       </div>
       <button
-        class="bg-white text-stone-950 rounded border-2 w-40 h-10 hover:bg-gray-400 hover:border-gray-400 text-center" id="generate">Generate
+        class="bg-white text-stone-950 rounded border-2 w-40 h-10 hover:bg-gray-400 hover:border-gray-400 text-center"
+        id="generate">Generate
         Password</button>
       <div class="flex flex-col gap-y-10 ">
         <label for="password" class="text-center">Generated Password:</label>
-        <div class="flex gap-x-2">
-          <input type="password" id="password" class="text-black w-96 h-10 rounded border-0 " readonly>
-          <div class="group rounded bg-white w-9 flex items-center justify-center hover:cursor-pointer hover:bg-gray-500 border-0 relative" id="clipboard">
-            <i class="fa-solid fa-clipboard text-2xl text-black hidden"></i>
-            <p class="bg-purple-950 w-44 absolute top-14 text-center border-purple-700 border-2 rounded font-semibold hidden group-hover:block brightness-75">Copy to Clipboard</p>
+        <div class="flex flex-col sm:flex-row gap-y-2 sm:gap-x-2">
+          <input type="password" id="password" class="text-black sm:w-96 w-72 h-10 rounded border-0 p-1 text-xsm sm:text-sm" readonly>
+          <div
+            class="rounded flex gap-x-2 items-center justify-center hover:cursor-pointer border-0 relative">
+            <div class="w-9 bg-white flex items-center justify-center h-9 rounded group hover:bg-gray-500" id="clipboard"> 
+              <i class="fa-solid fa-clipboard text-2xl text-black hidden"></i>
+              <p class="bg-purple-950 w-44 absolute top-14 text-center border-purple-700 border-2 rounded font-semibold hidden group-hover:block brightness-75">
+                Copy to Clipboard</p>
+            </div>
+            <div class="w-9 bg-white flex items-center justify-center h-9 rounded hover:bg-gray-500 group">
+              <i class="fa-solid fa-eye-slash text-2xl text-black show-hide"></i>
+              <p class="bg-purple-950 w-44 absolute top-14 text-center border-purple-700 border-2 rounded font-semibold hidden group-hover:block brightness-75">
+                Show/Hide</p>
+            </div>
           </div>
         </div>
       </div>
@@ -50,5 +62,4 @@
   </div>
   <script src="index.js"></script>
 </body>
-
 </html>

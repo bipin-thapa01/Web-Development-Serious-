@@ -42,3 +42,24 @@ copyButton.addEventListener("click", () => {
         console.error("Failed to copy: ", err);
     });
 });
+
+let clickCount = 0;
+let toggle = document.querySelector('#password');
+showHide = () =>
+{
+  if(clickCount%2===0)
+  {
+    document.querySelector('.show-hide').classList.remove('fa-solid','fa-eye-slash');
+    document.querySelector('.show-hide').classList.add('fa-regular','fa-eye-slash');
+    toggle.type = 'text';
+  }
+  else
+  {
+    document.querySelector('.show-hide').classList.remove('fa-regular','fa-eye-slash');
+    document.querySelector('.show-hide').classList.add('fa-solid','fa-eye-slash');
+    toggle.type = 'password';
+  }
+  clickCount++;
+}
+
+document.querySelector('.show-hide').addEventListener('click', showHide);
