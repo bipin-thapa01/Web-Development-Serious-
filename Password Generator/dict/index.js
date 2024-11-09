@@ -11,12 +11,12 @@ generatePassword = () =>
     let passChoice = Math.ceil(Math.random() *26);
     if(charChoice === 1)
     {
-      passChoice = String.fromCharCode(90-passChoice);
+      passChoice = String.fromCharCode(91-passChoice);
       pass += passChoice;
     }
     else if(charChoice === 2)
     {
-      passChoice = String.fromCharCode(122-passChoice);
+      passChoice = String.fromCharCode(123-passChoice);
       pass += passChoice;
     }
     else if(charChoice === 3)
