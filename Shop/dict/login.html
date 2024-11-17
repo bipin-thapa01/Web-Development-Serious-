@@ -10,16 +10,19 @@
 </head>
 
 <body class="bg-stone-800 text-white p-0 m-0 box-border">
-  <nav class="absolute top-0 left-0 w-full border-white border-b-2 flex items-center justify-between pr-20">
-    <a href="" class="flex gap-x-4 items-center py-2 px-4"><img src="logo.jpg" alt="Logo"
-        class="w-10 rounded-full opacity-50 hover:opacity-100">
+  <nav class="absolute top-0 left-0 w-full border-b-2 flex items-center justify-between pr-20" id="nav">
+    <a href="" class="flex gap-x-4 items-center py-2 px-4"><img src="./websrc/logo.jpg" alt="Logo"
+        class="w-10 rounded-full opacity-50 hover:opacity-100" id="nav1">
       <div>JantaPasal</div>
     </a>
     <div class="flex gap-x-20">
       <div>Home</div>
       <div>Items</div>
       <div>Help</div>
-      <div>Dark/Light</div>
+      <div class="cursor-pointer border-2 px-2 rounded-xl bg-white flex items-center gap-x-2 justify-center" id="switch-theme">
+        <p class="text-black" id="theme-text">Dark</p>
+        <i class="fa-solid fa-circle text-black" id="theme-circle"></i>
+      </div>
       <div>User</div>
     </div>
   </nav>
@@ -35,7 +38,7 @@
         <input type="password" placeholder="Enter your Password" class="rounded w-64 text-black h-8 px-2" id="password"
           autocomplete="off">
         <div
-          class="bg-white h-8 border-gray-500 border-x-2 rounded w-8 absolute right-0 flex justify-center items-center cursor-pointer hover:bg-gray-200">
+          class="bg-white h-8 border-gray-500 border-2 rounded w-8 absolute right-0 flex justify-center items-center cursor-pointer hover:bg-gray-200">
           <i class="fa-solid fa-eye-slash text-black" id="show-hide"></i>
         </div>
       </div>
@@ -45,5 +48,6 @@
     </form>
   </div>
   <script src="password.js"></script>
+  <script src="toggletheme.js"></script>
 </body>
 </html>
