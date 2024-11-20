@@ -13,6 +13,7 @@ module.exports = {
         'custom1' : '860px',
         'custom2' : '640px',
         'custom3' : '550px',
+        'custom4' : '420px',
       }
     },
   },
