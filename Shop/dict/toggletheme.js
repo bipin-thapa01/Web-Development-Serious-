@@ -1,5 +1,4 @@
-let toggle = document.querySelector('#switch-theme');
-toggle.addEventListener('click',event = () =>{
+let s = () =>{
   if(document.querySelector('#theme-text').innerText === 'Dark'){
     document.querySelector('#theme-text').innerText = 'Light';
     document.querySelector('#theme-circle').classList.remove('fa-solid',);
@@ -16,4 +15,8 @@ toggle.addEventListener('click',event = () =>{
     document.body.style.color = 'white';
     document.body.classList.add('dark');
   }
-});
+};
+let toggle1 = document.querySelector('#switch-theme1');
+let toggle2 = document.querySelector('#switch-theme2');
+toggle1.addEventListener('click',s);
+toggle2.addEventListener('click',s);

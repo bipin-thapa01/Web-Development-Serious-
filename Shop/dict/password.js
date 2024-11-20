@@ -31,5 +31,6 @@ document.querySelector('#submit').addEventListener('click',event =>
       document.querySelector('#form').removeChild(document.querySelector('.error-message'));
       error = 0;
     }
+    window.location.href = 'index.html';
   }
 });
