@@ -1,0 +1,18 @@
+.list-custom{
+  width: 300px;
+  height: 425px;
+  border: 2px solid white;
+  border-radius: 20px;
+  z-index: 99;
+}
+
+#cat1-content{
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  overflow: scroll;
+}
+
+.image{
+  z-index: 20;
+}
