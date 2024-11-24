@@ -1,3 +1,17 @@
+let leftContainer = document.createElement('div');
+leftContainer.classList.add('left');
+let left = document.createElement('i');
+left.classList.add('fa-solid','fa-chevron-left','left-arrow');
+document.querySelector('#cat1-content').appendChild(leftContainer);
+document.querySelector('.left').appendChild(left);
+
+let rightContainer = document.createElement('div');
+rightContainer.classList.add('right');
+let right = document.createElement('i');
+right.classList.add('fa-solid','fa-chevron-right');
+document.querySelector('#cat1-content').appendChild(rightContainer);
+document.querySelector('.right').appendChild(right);
+
 let manga = ['./websrc/Items/Berserk.jpg','./websrc/Items/blackclover.jpg','./websrc/Items/bleach.webp','./websrc/Items/bluelock.webp','./websrc/Items/dandadan.webp','./websrc/Items/demonslayer.webp ','./websrc/Items/jjk.jpg','./websrc/Items/katekyo.webp','./websrc/Items/naruto.jpg','./websrc/Items/onepiece.webp','./websrc/Items/sakamotodays.webp','./websrc/Items/tokyoghoul.webp'];
 function random(a){
   let len = a.length;
@@ -18,9 +32,8 @@ manga.forEach((i,index) =>
   let img = document.createElement('img');
   img.src = i;
   img.classList.add('image');
-  img.style.width = '300px';
-  img.style.height = '425px';
   div.appendChild(img);
-  div.classList.add('list-custom')
+  div.classList.add('list-custom');
+  div.style.overflow = 'hidden';
   document.querySelector('#cat1-content').appendChild(div);
 })

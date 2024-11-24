@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        '85' : '360px'
+        '85' : '360px',
+        '450': '450',
+        '1000' : '95vw'
       },
       spacing: {
         '100' : '700px'
