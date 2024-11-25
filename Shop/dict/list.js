@@ -1,18 +1,19 @@
 let leftContainer = document.createElement('div');
-leftContainer.classList.add('left');
+leftContainer.classList.add('left','dark:bg-gray-950','bg-gray-500');
 let left = document.createElement('i');
 left.classList.add('fa-solid','fa-chevron-left','left-arrow');
-document.querySelector('#cat1-content').appendChild(leftContainer);
+document.querySelector('.button-container').appendChild(leftContainer);
 document.querySelector('.left').appendChild(left);
 
 let rightContainer = document.createElement('div');
-rightContainer.classList.add('right');
+rightContainer.classList.add('right','dark:bg-gray-950','bg-gray-500');
 let right = document.createElement('i');
 right.classList.add('fa-solid','fa-chevron-right');
-document.querySelector('#cat1-content').appendChild(rightContainer);
+document.querySelector('.button-container').appendChild(rightContainer);
 document.querySelector('.right').appendChild(right);
 
-let manga = ['./websrc/Items/Berserk.jpg','./websrc/Items/blackclover.jpg','./websrc/Items/bleach.webp','./websrc/Items/bluelock.webp','./websrc/Items/dandadan.webp','./websrc/Items/demonslayer.webp ','./websrc/Items/jjk.jpg','./websrc/Items/katekyo.webp','./websrc/Items/naruto.jpg','./websrc/Items/onepiece.webp','./websrc/Items/sakamotodays.webp','./websrc/Items/tokyoghoul.webp'];
+let manga = ['berserk','blackclover','bleach','bluelock','dandadan','demonslayer','jjk','katekyo','naruto','onepiece','sakamotodays','tokyoghoul'];
+
 function random(a){
   let len = a.length;
   let temp = [];
@@ -30,7 +31,7 @@ manga.forEach((i,index) =>
 {
   let div = document.createElement('div');
   let img = document.createElement('img');
-  img.src = i;
+  img.src = `./websrc/Items/${i}.jpg`;
   img.classList.add('image');
   div.appendChild(img);
   div.classList.add('list-custom');
