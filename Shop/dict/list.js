@@ -1,12 +1,12 @@
 let leftContainer = document.createElement('div');
-leftContainer.classList.add('left','dark:bg-gray-950','bg-gray-500');
+leftContainer.classList.add('left','dark:bg-gray-950','bg-gray-500','hover:bg-gray-950','dark:hover:bg-gray-500','hover:text-white');
 let left = document.createElement('i');
 left.classList.add('fa-solid','fa-chevron-left','left-arrow');
 document.querySelector('.button-container').appendChild(leftContainer);
 document.querySelector('.left').appendChild(left);
 
 let rightContainer = document.createElement('div');
-rightContainer.classList.add('right','dark:bg-gray-950','bg-gray-500');
+rightContainer.classList.add('right','dark:bg-gray-950','bg-gray-500','hover:bg-gray-950','dark:hover:bg-gray-500','hover:text-white');
 let right = document.createElement('i');
 right.classList.add('fa-solid','fa-chevron-right');
 document.querySelector('.button-container').appendChild(rightContainer);
