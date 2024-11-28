@@ -8,6 +8,9 @@ module.exports = {
         '450': '450',
         '1000' : '90vw'
       },
+      height:{
+        'custom1' : '550px'
+      },
       spacing: {
         '100' : '700px'
       },

@@ -38,3 +38,14 @@ manga.forEach((i,index) =>
   div.style.overflow = 'hidden';
   document.querySelector('#cat1-content').appendChild(div);
 })
+
+let slideLeft = () =>{
+  console.log('left');
+}
+
+let slideRight = () =>{
+  console.log('right')
+}
+
+let leftSlide = document.querySelector('.left').addEventListener('click',slideLeft);
+let rightSlide = document.querySelector('.right').addEventListener('click',slideRight);
