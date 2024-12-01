@@ -25,8 +25,6 @@ function random(a){
 }
 
 manga = random(manga);
-console.log(manga);
-
 manga.forEach((i,index) =>
 {
   let div = document.createElement('div');
@@ -34,17 +32,14 @@ manga.forEach((i,index) =>
   img.src = `./websrc/Items/${i}.jpg`;
   img.classList.add('image');
   div.appendChild(img);
-  div.classList.add('list-custom');
+  div.classList.add('list-custom',`list-custom${index+1}`);
   div.style.overflow = 'hidden';
   document.querySelector('#cat1-content').appendChild(div);
-})
-
-let slideLeft = () =>{
-  console.log('left');
-}
-
-let slideRight = () =>{
-  console.log('right')
+})k holslideLeft = () =>{
+  if(leftRem>0){
+    document.querySelector(`.list-custom${leftRem}`).style.display = 'block';
+    leftRem--;
+  }
 }
 
 let leftSlide = document.querySelector('.left').addEventListener('click',slideLeft);
