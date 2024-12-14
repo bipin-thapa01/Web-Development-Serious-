@@ -1,11 +1,11 @@
 import Header from './Header.jsx'
-import Continue from './continue-container.jsx'
+import Containers from './Containers.jsx'
 
 function Nav() {
   return (
     <>
       <Header/>
-      <Continue/>
+      <Containers/>
     </>
   )
 }
